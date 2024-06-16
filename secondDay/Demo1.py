@@ -2,11 +2,11 @@ import math  # 导入 math库
 
 # 浮点数
 
-num = 10
+n = 10
 
-num2 = -10
+n2 = -10
 
-print(type(num2))
+print(type(n2))
 
 
 

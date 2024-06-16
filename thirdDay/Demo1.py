@@ -14,13 +14,13 @@
 
 # 多分支
 #
-# number = int(input("请输入你的成绩:"))
+# nber = int(input("请输入你的成绩:"))
 #
-# if number > 90:
+# if nber > 90:
 #     print("A")
-# elif number > 80 & number < 90:
+# elif nber > 80 & nber < 90:
 #     print("B")
-# elif number > 70 & number < 80:
+# elif nber > 70 & nber < 80:
 #     print("C")
 # else:
 #     print("D")
