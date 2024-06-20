@@ -180,12 +180,12 @@ d4 = {
 
 print(d4.pop("name"))  # 删除键
 
-# d5 = d4.copy()  # 拷贝
-# print(d5)
-#
-# print(d4.get("age"))  # 获取对应键值
-#
-# print(d4)
+d5 = d4.copy()  # 拷贝
+print(d5)
+
+print(d4.get("age"))  # 获取对应键值
+
+print(d4)
 
 print(d4.popitem())  # 从后面开始弹出
 print(d4)
