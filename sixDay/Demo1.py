@@ -70,7 +70,7 @@
 #
 # str1 = "hello world"
 #
-# print(str1.count("l"))  # 某个字符的数量
+# print(str1.user("l"))  # 某个字符的数量
 # print(str1.isupper())   # 字符是否都大写
 # print(str1.islower())   # 字符是否都小写
 # print(str1)

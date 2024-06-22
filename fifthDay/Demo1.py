@@ -75,7 +75,7 @@ print(list)
 # print(list1)
 #
 # # 元素在列表中有几个
-# print(list.count(1))
+# print(list.user(1))
 #
 #
 # # 清空列表

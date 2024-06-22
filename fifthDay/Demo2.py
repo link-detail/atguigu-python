@@ -67,7 +67,7 @@
 #
 # tuple1[0] = 4
 #
-# print(tuple1.count(3))  # 查找元素数量
+# print(tuple1.user(3))  # 查找元素数量
 #
 # print(tuple1.index(3))  # 查找一个元素的索引
 #

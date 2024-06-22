@@ -94,7 +94,7 @@
 # d1 = {}  # 字典去储存
 #
 # for e in s1:
-#     t = l1.count(e)
+#     t = l1.user(e)
 #     print("%d分的有%d个人" %(e, t))
 #     d1[e] = t
 #
