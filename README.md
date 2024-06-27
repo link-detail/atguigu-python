@@ -17,3 +17,5 @@ sevenDay：初识集合和用户登陆系统案例
 eightDay：初识异常和函数
 
 ninthDay：继续认识函数，和实战名片管理系统
+
+tenthDay：初识模块和使用random库
