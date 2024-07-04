@@ -25,3 +25,5 @@ eleventhDay：认识其他库
 twelfthDay：初识文件读写操作
 
 thirteenDay：初识面向对象
+
+fortnightDay：认识魔法方法和实战学校管理系统
