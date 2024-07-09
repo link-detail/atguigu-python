@@ -29,7 +29,7 @@ class Client(wx.Frame):
         self.send_btn = wx.Button(self.pl, label="发送信息", size=(160, 60), pos=(260, 580))
 
         # 文本框(TE_READONLY:只读，wx.TE_MULTILINE：现实多行)
-        self.chat_text = wx.TextCtrl(self.pl, size=(405, 340), pos=(30, 100), style=wx.TE_READONLY|wx.TE_MULTILINE)   # 聊天文本框
+        self.chat_text = wx.TextCtrl(self.pl, size=(405, 340), pos=(30, 100), style=wx.TE_READONLY | wx.TE_MULTILINE)   # 聊天文本框
         self.input_text = wx.TextCtrl(self.pl, size=(405, 100), pos=(30, 465), style=wx.TE_MULTILINE)  # 发送信息文本框
 
 
@@ -57,11 +57,14 @@ class Client(wx.Frame):
 
     # 接收信息线程方法
     def receive_text_fun(self):
-        if self.isConnected:
-            # 客户端接收到服务器的信息
-            recv_text = self.client_socket.recv(1024).decode("utf8")
-            # 将信息放到聊天文本框内
-            self.chat_text.AppendText(recv_text)
+        try:
+            if self.isConnected:
+                # 客户端接收到服务器的信息
+                recv_text = self.client_socket.recv(1024).decode("utf8")
+                # 将信息放到聊天文本框内
+            self.chat_text.AppendText(recv_text + "\n")
+        except Exception as e:
+            print(e)
 
 
     # 点击离开聊天室按钮触发函数
@@ -84,6 +87,7 @@ class Client(wx.Frame):
             if text != "":
                 self.client_socket.send(text.encode("utf8"))
                 self.input_text.Clear()  # 清空发送内容
+
 
 
 

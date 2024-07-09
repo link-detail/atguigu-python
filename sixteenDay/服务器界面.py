@@ -1,8 +1,8 @@
 # 服务端界面开发
 import wx
 import threading
-from socket import *
 from concurrent.futures import ThreadPoolExecutor  # 线程池执行方法
+from socket import *
 
 class Server(wx.Frame):
 
@@ -62,14 +62,16 @@ class Server(wx.Frame):
             self.client_thread_dict[client_name] = client_thread
             self.pool.submit(client_thread.run)  # 将线程提交到线程池中
             # 通知所有客户端
-            self.send("【服务器通知】欢迎%s进入聊天室!" % client_name)
+            self.sends("【服务器通知】欢迎%s进入聊天室!" % client_name)
 
 
 
 
 
-    # 服务器群发信息
-    def send(self, text):
+    # 服务器群发信息（服务器给每一个与之连接的客户端发送信息）
+    def sends(self, text):
+        # 显示在服务器内容文本
+        self.chat_text.AppendText(text+"\n")
         for client in self.client_thread_dict.values():
             if client.isOn:
                 client.client_socket.send(text.encode("utf8"))
@@ -99,13 +101,14 @@ class ClientThread(threading.Thread):
     # 重写run方法
     def run(self):
         while self.isOn:
-            text = self.client_socket.recv(1024).docode("utf8")
+            # 接收客户端发来的信息
+            text = self.client_socket.recv(1024).decode("utf8")
             print(text)
-            if text == "断开连接":
+            if text == "我要断开连接了，服务器！":
                 self.isOn = False
-                self.server.send('【服务器通知】%s离开了聊天室' % self.client_name)
+                self.server.sends('【服务器通知】%s离开了聊天室' % (self.client_name))
             else:
-                self.server.send("【%s】%s" % self.client_name, text)
+                self.server.sends("【%s】%s" % (self.client_name, text))  # 注意这里格式 :%(1, 2, ...) 不可以不加小括号
         # 关闭套接字
         self.client_socket.close()
 
