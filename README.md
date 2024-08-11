@@ -30,8 +30,7 @@ fortnightDay：认识魔法方法和实战学校管理系统
 
 fifteenDay：抽奖实战与计算器实战
 
-sixteenDay：
-
+sixteenDay：整合千帆大模型
 
 
 
